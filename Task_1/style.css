@@ -1,0 +1,49 @@
+table {
+    font-family: helvetica;
+    font-style: regular;
+    line-height: 36px;
+    font-size: 20px;
+    color: #0c332f;
+    margin-top: 20px;
+}
+#contents {
+    padding: 50px;
+}
+header {
+    background-color: #008c85;
+    font-family: helvetica;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 36px;
+    color: #e4efee;
+    width: 100%;
+    height: 100px;
+}
+h2 {
+    padding: 10px 10px 50px 10px;
+}
+@media all and (max-width: 768px) {
+    table tr th:nth-child(2),
+    table tr td:nth-child(2),
+    table tr th:nth-child(3),
+    table tr td:nth-child(3) {
+        display: none;
+    }
+    header {
+        background-color: #008c85;
+        font-family: helvetica;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 40px;
+        color: #e4efee;
+    }
+    table {
+        font-family: helvetica;
+        font-style: regular;
+        background-color: #f9fbd0;
+        line-height: 36px;
+        font-size: 24px;
+        color: #0c332f;
+        margin-top: 20px;
+    }
+}

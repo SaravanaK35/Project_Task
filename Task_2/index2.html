@@ -1,0 +1,183 @@
+<html>
+
+<head>
+    <title>Employees</title>
+    <link rel="stylesheet" href="style_2.css">
+
+</head>
+
+<body onload="information()">
+    <header>
+        <h2>Employee Details</h2>
+    </header>
+    <div id="contents">
+
+        <table border="1" id="details">
+            <tr>
+
+            </tr>
+
+        </table>
+        <table border="1" id="details_normal_view">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Shoesize</th>
+                <th>Title</th>
+            </tr>
+
+        </table>
+    </div>
+    <div id="prev_next">
+        <button type="button" id="prev" value="prev_val" onClick="prevInformation()">Previous</button>
+        <button type="button" id="next" value="next_val" onClick="nextInformation()">Next</button>
+    </div>
+    <script>
+        var nex = 0;
+        var a = [{
+            "name": "John",
+            "age": 14,
+            "shoesize": 5,
+            "title": "ceo"
+        }, {
+            "name": "Peter",
+            "age": 14,
+            "shoesize": 5,
+            "title": "ceo"
+        }, {
+            "name": "Saravana",
+            "age": 14,
+            "shoesize": 5,
+            "title": "pppp"
+        }, {
+            "name": "Nelson",
+            "age": 14,
+            "shoesize": 5,
+            "title": "ceo"
+        }];
+
+        function information() {
+
+            var table = document.getElementById("details_normal_view");
+
+            for (i = 0; i < a.length; i++) {
+                var rows = table.insertRow(i + 1);
+                var column1 = rows.insertCell(0);
+                column1.innerHTML = a[i].name;
+                var column2 = rows.insertCell(1);
+                column2.innerHTML = a[i].age;
+                var column3 = rows.insertCell(2);
+                column3.innerHTML = a[i].shoesize;
+                var column4 = rows.insertCell(3);
+                column4.innerHTML = a[i].title;
+
+            }
+            var table_responsive = document.getElementById("details");
+
+            for (i = 0; i < a.length; i++) {
+                var rows = table_responsive.insertRow(i + 1);
+                var column1 = rows.insertCell(0);
+                column1.innerHTML = a[i].name;
+                var column2 = rows.insertCell(1);
+                column2.innerHTML = a[i].age;
+                var column3 = rows.insertCell(2);
+                column3.innerHTML = a[i].shoesize;
+                var column4 = rows.insertCell(3);
+                column4.innerHTML = a[i].title;
+
+            }
+
+        }
+
+        function prevInformation() {
+            console.log("Inside prevInformation");
+            //var c="Next"
+            var prev = document.getElementById("prev").value;
+            console.log(prev);
+
+            var table = document.getElementById("details");
+
+            if (prev == "prev_val") {
+                var b = [];
+                console.log(nex);
+
+                if (nex < a.length) {
+
+                    b.push({
+                        "name": a[nex].name,
+                        "age": a[nex].age,
+                        "shoesize": a[nex].shoesize,
+                        "title": a[nex].title
+                    });
+
+                    console.log(b);
+                    nex--;
+                    count = -1;
+                    if (nex == count) {
+                        nex++;
+                    }
+                }
+
+            }
+
+            for (i = 0; i < b.length; i++) {
+                var rows = table.insertRow(i + 1);
+                var column1 = rows.insertCell(0);
+                column1.innerHTML = b[i].name;
+                var column2 = rows.insertCell(1);
+                column2.innerHTML = b[i].age;
+                var column3 = rows.insertCell(2);
+                column3.innerHTML = b[i].shoesize;
+                var column4 = rows.insertCell(3);
+                column4.innerHTML = b[i].title;
+
+            }
+
+        }
+
+        function nextInformation() {
+            console.log("Inside nextInformation");
+
+            var next = document.getElementById("next").value;
+            console.log(next);
+            var table = document.getElementById("details");
+
+            if (next == "next_val") {
+                var b = [];
+                console.log(nex);
+
+                if (nex < a.length) {
+
+                    b.push({
+                        "name": a[nex].name,
+                        "age": a[nex].age,
+                        "shoesize": a[nex].shoesize,
+                        "title": a[nex].title
+                    });
+                    console.log(b);
+                    nex++;
+                    if (nex == a.length) {
+                        nex--;
+                    }
+                }
+
+            }
+
+            for (i = 0; i < b.length; i++) {
+                var rows = table.insertRow(i + 1);
+                var column1 = rows.insertCell(0);
+                column1.innerHTML = b[i].name;
+                var column2 = rows.insertCell(1);
+                column2.innerHTML = b[i].age;
+                var column3 = rows.insertCell(2);
+                column3.innerHTML = b[i].shoesize;
+                var column4 = rows.insertCell(3);
+                column4.innerHTML = b[i].title;
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>

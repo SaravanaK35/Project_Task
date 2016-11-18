@@ -1,0 +1,117 @@
+<html>
+
+<head>
+    <title>Employees</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+</head>
+
+<body onload="information()">
+    <header>
+        <h2>Employee Details</h2>
+    </header>
+    <div id="contents">
+        <input type="search" placeholder="eg:Peter" id="searchinfo">
+        <button onclick="searchInformation()"><i class="fa fa-search"></i></button>
+
+        <table border="1" id="details">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Shoesize</th>
+                <th>Title</th>
+            </tr>
+
+        </table>
+    </div>
+    <script>
+        var a = [{
+            "name": "John",
+            "age": 14,
+            "shoesize": 5,
+            "title": "ceo"
+        }, {
+            "name": "Peter",
+            "age": 14,
+            "shoesize": 5,
+            "title": "ceo"
+        }, {
+            "name": "Peter",
+            "age": 14,
+            "shoesize": 5,
+            "title": "pppp"
+        }, {
+            "name": "nelson",
+            "age": 14,
+            "shoesize": 5,
+            "title": "ceo"
+        }];
+
+        function information() {
+
+            var table = document.getElementById("details");
+
+            for (i = 0; i < a.length; i++) {
+                var rows = table.insertRow(i + 1);
+                var column1 = rows.insertCell(0);
+                column1.innerHTML = a[i].name;
+                var column2 = rows.insertCell(1);
+                column2.innerHTML = a[i].age;
+                var column3 = rows.insertCell(2);
+                column3.innerHTML = a[i].shoesize;
+                var column4 = rows.insertCell(3);
+                column4.innerHTML = a[i].title;
+
+            }
+
+        }
+
+        function searchInformation() {
+            var table = document.getElementById("details");
+            var rowCount = table.rows.length;
+            console.log(rowCount);
+            for (var i = 0; i < rowCount - 1; i++) {
+
+                table.deleteRow(1);
+            }
+            /*   
+         for(i=0;i<a.length;i++)
+         {
+            document.getElementById("details").deleteRow(i+1);
+         }
+         */
+            var enteredText = document.getElementById("searchinfo").value;
+            console.log(enteredText);
+
+            var b = [];
+
+            for (i = 0; i < a.length; i++) {
+                if (enteredText == a[i].name) {
+                    b.push({
+                        "name": a[i].name,
+                        "age": a[i].age,
+                        "shoesize": a[i].shoesize,
+                        "title": a[i].title
+                    });
+                    console.log(b);
+                }
+            }
+
+            for (i = 0; i < b.length; i++) {
+                var rows = table.insertRow(i + 1);
+                var column1 = rows.insertCell(0);
+                column1.innerHTML = b[i].name;
+                var column2 = rows.insertCell(1);
+                column2.innerHTML = b[i].age;
+                var column3 = rows.insertCell(2);
+                column3.innerHTML = b[i].shoesize;
+                var column4 = rows.insertCell(3);
+                column4.innerHTML = b[i].title;
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>
